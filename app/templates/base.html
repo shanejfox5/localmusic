@@ -1,0 +1,14 @@
+<html>
+    <head>
+        {% if title %}
+        <title>{{ title }} - Microblog</title>
+        {% else %}
+        <title>Welcome to Microblog</title>
+        {% endif %}
+    </head>
+    <body>
+        <div> <a href="/index">Ithaca Music: </a><a href="/artists">Artists</a> <a href="/new_artist">New Artists</a> </div>
+        <hr>
+        {% block content %}{% endblock %}
+    </body>
+</html>

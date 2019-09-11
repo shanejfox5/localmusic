@@ -5,10 +5,7 @@ from random import randrange
 @app.route('/')
 @app.route('/index')
 def index():
-
-
     '''
-
     user = {'username': 'Miguel'}
     posts = [
         {
@@ -23,8 +20,6 @@ def index():
     '''
     return render_template('index.html', title='Home')
 
-
-
 @app.route('/quotes')
 def quotes():
     quotes = ["'Don't cry because it's over, smile because it happened.' ― Dr. Seuss",
@@ -37,7 +32,6 @@ def quotes():
     quoteChoice = randrange(len(quotes))
     currentQuote = quotes[quoteChoice]
     return render_template('quote.html', title="Quote", quote = currentQuote)
-
 
 @app.route('/artists')
 def artists():

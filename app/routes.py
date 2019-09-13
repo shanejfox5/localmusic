@@ -35,7 +35,10 @@ def quotes():
 
 @app.route('/artists')
 def artists():
-    return render_template('artists.html', title="Artists")
+    data = [{'artist': 'X Ambassadors'}, {'artist': 'Gunpoets'}, {'artist': 'Donna the Buffalo'},
+               {'artist': 'The Blind Spots'}]
+
+    return render_template('artists.html', title="Artists", artists=data)
 
 @app.route('/new_artist')
 def new_artist():
@@ -43,4 +46,6 @@ def new_artist():
 
 @app.route('/artist')
 def artist():
-    return render_template('artist.html', title="Artist")
+    return render_template('artist.html', title="Artist", artists=artists)
+
+

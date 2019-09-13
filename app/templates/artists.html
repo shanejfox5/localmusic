@@ -2,12 +2,11 @@
 
 {% block content %}
 
-    <h2>List of Artists in the Greater Ithaca Area: </h2>
-    <p><a href="/artist">X Ambassadors</a></p>
-    <p><a href="/artist">Gunpoets</a></p>
-    <p><a href="/artist">Donna the Buffalo</a></p>
-    <p><a href="/artist">The Blind Spots</a></p>
 
-    Check me out
+ <h2>List of Artists in the Greater Ithaca Area: </h2>
+
+    {% for a in artists %}
+        <p><a href="/artist">{{ a.artist }}</a></p>
+    {% endfor %}
 
 {% endblock %}

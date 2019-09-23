@@ -1,15 +1,36 @@
 {% extends "base.html" %}
 
 {% block content %}
+    {% if not form.validate_on_submit() %}
 
-    <h1>Have a new artist you'd like to share?</h1>
-    <h3>Let us know below!</h3>
-    <hr>
-    <form>
-        Full name: <input type="text" name="fullname"><br>
-        Hometown: <input type="text" name="hometown"><br>
-        Description: <input type="text" name="description"><br>
-        <input type="submit" value="Create new Artist">
+    <h1>Have an artist you want to share? Let us know!</h1>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.name.label }}<br>
+            {{ form.name(size=32) }}<br>
+            {% for error in form.name.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.hometown.label }}<br>
+            {{ form.hometown(size=32) }}<br>
+            {% for error in form.hometown.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.description.label }}<br>
+            {{ form.description(size=32) }}<br>
+            {% for error in form.description.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
     </form>
+    {% else %}
+        {{ form.name.data }}
 
+{% endif %}
 {% endblock %}

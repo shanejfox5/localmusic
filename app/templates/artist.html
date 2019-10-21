@@ -2,12 +2,18 @@
 
 {% block content %}
 
-    <h1>Artist #1: {{ artist.name }}</h1>
+    <h1>Artist: {{ artist.name }}</h1>
     <hr>
-    <h3>Location: <b>Ithaca, New York Area</b></h3>
+    <h3>Hometown: <b>{{ artist.hometown }}</b></h3>
     <hr>
-    <p>X Ambassadors is an American rock band from Ithaca, New York. Its members currently include lead vocalist Sam Harris, keyboardist Casey Harris, and drummer Adam Levin. Their most notable songs include "Jungle", "Renegades", and "Unsteady". The band's debut full-length album, VHS, was released on June 30, 2015.</p>
     <hr>
-    <h3>Upcoming shows: <b>n/a</b></h3>
+    <h3>Description: <b>{{ artist.description }}</b> </h3>
+    <h3>Upcoming shows: </h3>
 
+    <ul>
+    {%   for a2e in artist.events %}
+        <li>{{  a2e.event.title  }}</li>
+    {%  endfor %}
+    </ul>
 {% endblock %}
+

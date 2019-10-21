@@ -5,7 +5,7 @@
  <h2>List of Artists in the Greater Ithaca Area: </h2>
 
     {% for a in artists %}
-        <p><a href="/artist">{{ a.artist }}</a></p>
+         <a href="{{ url_for('artist', artist_name=a.name) }}">{{ a.name }}</a>
     {% endfor %}
 
 {% endblock %}

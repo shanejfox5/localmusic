@@ -6,4 +6,9 @@
     <hr>
     <h4>Find all the best bands in Ithaca right here!! Use the navigation bar to discover artists in the Ithaca area, and to let the world know about new and upcoming artists!</h4>
 
+    <h1>Hi, {{ current_user.username }}!</h1>
+    {% for post in posts %}
+    <div><p>{{ post.author.username }} says: <b>{{ post.body }}</b></p></div>
+    {% endfor %}
+
 {% endblock %}

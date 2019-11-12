@@ -135,6 +135,8 @@ def reset_db():
 @app.route('/artist/<artist_name>')
 def artist(artist_name):
     a = Artist.query.filter_by(name=artist_name).first()
+    if a is None:
+        return render_template('404.html')
     return render_template('artist.html', title="Artist", artist=a)
 
 

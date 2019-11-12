@@ -1,12 +1,18 @@
+{% extends 'bootstrap/base.html' %}
+
+
 <html>
     <head>
-        {% if title %}
-        <title>{{ title }} - Microblog</title>
-        {% else %}
-        <title>Welcome to Microblog</title>
-        {% endif %}
+        {% block title %}
+            {% if title %}
+                <title>{{ title }} - Microblog</title>
+            {% else %}
+                <title>Welcome to Microblog</title>
+            {% endif %}
+        {% endblock %}
     </head>
     <body>
+    {% block navbar %}
         <div>
             <a href="/index">Ithaca Music: </a>
             <a href="/artists"> Artists</a>
@@ -18,20 +24,25 @@
                     <a href="{{ url_for('new_venue') }}">New Venue</a>
                     <a href="{{ url_for('new_event') }}">New Event</a>
                 {% endif %}
-
+    {% endblock %}
         </div>
         <hr>
 
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-        <ul>
-            {% for message in messages %}
-            <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-        {% endif %}
-        {% endwith %}
+    {% block content %}
+        <div class="container">
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <ul>
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            {% endwith %}
+        </div>
 
-        {% block content %}{% endblock %}
+        {% block app_content %} {% endblock %}
+
+    {% endblock %}
     </body>
 </html>
